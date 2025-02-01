@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+      "target": "ES2015", // Target ES2015 or later
+      "module": "commonjs", // Use CommonJS modules
+      "lib": ["ES2015"], // Include ES2015 library features (e.g., Promises)
+    }
+  }
