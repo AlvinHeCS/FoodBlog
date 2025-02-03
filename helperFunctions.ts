@@ -46,7 +46,7 @@ function login(user, pass) {
 
 }
 // Test the login function
-console.log(login("angie", "password"))
+console.log(login("angie", "password"));
 
 
 function postText(fileName, info) {
@@ -73,14 +73,42 @@ function postText(fileName, info) {
 }
 
 // test postText function
-postText("hello", "hello my name is Alvin")
-postText("hi", "hello my name is Alvin")
+postText("hello", "hello my name is Alvin");
+postText("hi", "hello my name is Alvin");
 
 
-// function postImg()
+function editPost(fileName, editedInfo) {
+    const filePath =  "./posts/" + fileName;
+    if (fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, editedInfo);
+        console.log('File written successfully.');
+        return true;
+    } else {
+        console.error('File does not exist.');
+        return false;
+    }
+}
 
-// function editPost
+//test editPost function
+editPost("hello.txt", "hello my name is not alvin");
 
-// function getfileInformation
 
+function getfileInformation(fileName) {
+    const filePath =  "./posts/" + fileName; 
+    try {
+        const data = fs.readFileSync(filePath, 'utf8');
+        console.log(data);
+        return data
+    } catch (err) {
+        console.error('Error reading file:', err);
+    }
+}
+
+//test getFileInformation()
+getfileInformation("hello.txt");
+
+
+
+//Add this function later
 //function getImg
+//function postImg() 

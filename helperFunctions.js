@@ -64,9 +64,35 @@ function postText(fileName, info) {
         }
     });
 }
+// test postText function
 postText("hello", "hello my name is Alvin");
 postText("hi", "hello my name is Alvin");
-// function postImg
-// function editPost
-// function getfileInformation
-//function getImg321321
+function editPost(fileName, editedInfo) {
+    var filePath = "./posts/" + fileName;
+    if (fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, editedInfo);
+        console.log('File written successfully.');
+        return true;
+    }
+    else {
+        console.error('File does not exist.');
+        return false;
+    }
+}
+//test editPost function
+editPost("hello.txt", "hello my name is not alvin");
+function getfileInformation(fileName) {
+    var filePath = "./posts/" + fileName;
+    try {
+        var data = fs.readFileSync(filePath, 'utf8');
+        console.log(data);
+        return data;
+    }
+    catch (err) {
+        console.error('Error reading file:', err);
+    }
+}
+//test getFileInformation()
+getfileInformation("hello.txt");
+//function getImg
+// function postImg() Add this function later
