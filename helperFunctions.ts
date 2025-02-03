@@ -2,39 +2,48 @@ import * as fs from 'fs';
 import * as readline from 'readline';
 
 
-// Login function 
-async function ProcessLine(user: string, pass: string, line: string): Promise<boolean> {
-    const userPassArray = line.split(' ')
+// Login function
+function ProcessLine(user, pass, line) {
+    console.log("This is user: " + user)
+    console.log("this is pass: " + pass)
+    console.log("This is line: " + line)
+    const userPassArray = line.split(' ');
     const lineUser = userPassArray[0];
     const linePass = userPassArray[1];
-    if (user == lineUser && pass == linePass) {
-        return true
-    } else {
-        return false
-    }
+    console.log("This is lineUser: " + lineUser)
+    console.log("This is linePass: " + linePass)
+    return user === lineUser && pass === linePass;
 }
 
-async function login(user: string, pass: string): Promise<boolean> {
+
+function login(user, pass) {
     try {
-        const fileStream = await fs.createReadStream('./loginCredentials.txt', 'utf-8');
-        const rl = readline.createInterface({
-            input:fileStream,
+        const fileStream = fs.createReadStream('./loginCredentials.txt', 'utf-8');
+        const readingInterface = readline.createInterface({
+            input: fileStream,
             crlfDelay: Infinity,
         });
-        for await (const line of rl) {
-            if (await ProcessLine(user, pass, line)) {
-                return true; 
+        
+        let successfulLogin = false;
+        readingInterface.on('line', (line) => {
+            if (ProcessLine(user, pass, line)) {
+                console.log("successful log in")
+                successfulLogin = true;
+                readingInterface.close();
             }
-        }
-        console.log('File reading completed.');
-        return false;
-    } catch (error){
-        console.error("Error:", error);
-        return false;
+        });
+        
+        readingInterface.on('close', function () {
+            console.log('File reading completed.');
+            console.log(successfulLogin)
+            return successfulLogin;
+        
+        });
     }
+    catch (error) {
+        console.log(error);
+    }
+
 }
-
-
-(async () => {
-    console.log(await login("angie", "password"))
-})();
+// Test the login function
+console.log(login("angie", "password"))
