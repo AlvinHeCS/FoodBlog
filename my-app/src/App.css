@@ -1,0 +1,139 @@
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  /* border: 2px solid red; */
+}
+
+.header {
+  width: 100%; 
+  height: 10vh;
+  background-color: rgb(255, 255, 255);
+  /* border: 2px solid rgb(197, 42, 42); */
+  display: flex;
+
+}
+
+.logo {
+  /* border: 2px solid red; */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  width: 30vw;
+  margin-left: 30vw;
+  /* font-weight: bold; */
+  margin: auto;
+}
+
+.featured {
+  background-image: url(featuredTest.jpg);
+  display: flex;
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  width: 100%;
+  height: 80vh;
+  transition: filter 0.3s ease-in-out; /* Smooth transition effect */
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.featured:hover {
+  filter: brightness(60%); 
+}
+
+.featured .btn {
+  background-color: rgba(99, 98, 98, 0.2);
+  color: rgb(102, 100, 100);
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  border: 2px solid rgb(0, 0, 0);
+  width: 15vw;
+  height: 5vh;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.featured:hover .btn {
+  opacity: 1;
+}
+
+.featured:hover .btn:hover {
+  transform: translateY(-1px);
+}
+
+
+
+
+
+
+
+/* iuverse.io */
+/* From Uiverse.io by Cevorob */ 
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  left: 20px;
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
+}
