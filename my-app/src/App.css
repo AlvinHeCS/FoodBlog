@@ -19,11 +19,12 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: 40px;
   width: 30vw;
-  margin-left: 30vw;
   /* font-weight: bold; */
   margin: auto;
 }
 
+
+/* featured recipes */
 .featured {
   background-image: url(featuredTest.jpg);
   display: flex;
@@ -36,104 +37,217 @@
   justify-content: center;
   align-items: center;
   /* border: 2px solid red; */
-}
-
-.featured:hover {
-  filter: brightness(60%); 
-}
-
-.featured .btn {
-  background-color: rgba(99, 98, 98, 0.2);
-  color: rgb(102, 100, 100);
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 16px;
-  opacity: 0; 
-  transition: opacity 0.3s ease-in-out;
-  border: 2px solid rgb(0, 0, 0);
-  width: 15vw;
-  height: 5vh;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.featured:hover .btn {
-  opacity: 1;
-}
-
-.featured:hover .btn:hover {
-  transform: translateY(-1px);
-}
-
-
-
-
-
-
-
-/* iuverse.io */
-/* From Uiverse.io by Cevorob */ 
-.burger {
   position: relative;
-  width: 40px;
-  height: 30px;
-  background: transparent;
+  filter: brightness(100%); 
   cursor: pointer;
-  display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  position: relative;
-  left: 20px;
 }
 
-.burger input {
-  display: none;
-}
-
-.burger span {
-  display: block;
+.featured::before {
+  content: "";
   position: absolute;
-  height: 4px;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
-  opacity: 1;
+  top: 0;
   left: 0;
-  transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Dark overlay effect */
+  z-index: 1;
 }
 
-.burger span:nth-of-type(1) {
-  top: 0px;
-  transform-origin: left center;
+.featured > * {
+  position: relative;
+  z-index: 2; /* Keeps child elements above the dark overlay */
 }
 
-.burger span:nth-of-type(2) {
-  top: 50%;
-  transform: translateY(-50%);
-  transform-origin: left center;
+.featured:hover::before {
+  opacity: 0; 
 }
 
-.burger span:nth-of-type(3) {
-  top: 100%;
-  transform-origin: left center;
-  transform: translateY(-100%);
+.featuredTextBox {
+  width: 100%;
+  height: 20vh;
+  opacity: 0.4;
+  background-color: rgb(0, 0, 0);
+  margin-top: 50vh;
+  position: absolute;
 }
 
-.burger input:checked ~ span:nth-of-type(1) {
-  transform: rotate(45deg);
-  top: 0px;
-  left: 5px;
+.featuredText {
+  /* border: 2px solid red; */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 50px;
+  width: 30vw;
+  /* font-weight: bold; */
+  color: white;
+  margin-top: 40vh;
 }
 
-.burger input:checked ~ span:nth-of-type(2) {
-  width: 0%;
-  opacity: 0;
+.featuredTextDescription {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  width: 30vw;
+  color: white;
+  margin-top: 60vh;
 }
 
-.burger input:checked ~ span:nth-of-type(3) {
-  transform: rotate(-45deg);
-  top: 28px;
-  left: 5px;
+
+
+/* side menu */
+
+.menuCheckBox input {
+  position: absolute;
+  margin-left: 2.5vw;
+  margin-top: 2%;
+  transform: scale(2.5);
+  z-index: 999;
+  cursor: pointer;
+}
+.menuCheckBox input:checked {
+  position: fixed;
+}
+
+.menuCheckBox input:checked ~ .side-menu{
+  left: 0px;
+}
+
+.menuCheckBox input:not(:checked) ~ .side-menu {
+  left: -250px;
+}
+
+.side-menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background-color: #b6b6b6;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  z-index: 98;
+}
+
+.side-menu .btn1 {
+  position: fixed;
+  margin-top: 60px;
+  width: 250px;
+  height: 40px;
+  left: -250px;
+  transition: 0.3s;
+}
+
+.side-menu .btn2 {
+  position: fixed;
+  margin-top: 110px;
+  width: 250px;
+  height: 40px;
+  left: -250px;
+  transition: 0.3s;
+}
+
+.menuCheckBox input:checked ~ .side-menu .btn2 {
+  left: 0px;
+}
+
+
+.menuCheckBox input:not(:checked) ~ .side-menu .btn2 {
+  left: -250px;
+}
+
+.menuCheckBox input:checked ~ .side-menu .btn1 {
+  left: 0px;
+}
+
+
+.menuCheckBox input:not(:checked) ~ .side-menu .btn1 {
+  left: -250px;
+}
+
+
+/* quote banner */
+.banner {
+  background-color: rgb(226, 224, 224);
+  width: 100%;
+  height: 30vh;
+  display: flex;
+}
+
+.quote {
+  /* border: 2px solid red; */
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  width: 40vw;
+  /* font-weight: bold; */
+  margin: auto;
+}
+
+/* options */
+.options {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 80vh;
+  align-items: center;
+  display: flex
+}
+
+.savoury {
+  height: 60vh;
+  width: 25%;
+  background-color: blue;
+  margin-left: 10.5%;
+  background-image: url(savouryTest.jpg);
+  display: flex;
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+
+.sweet {
+  height: 60vh;
+  width: 25%;
+  margin-left: 2.5%;
+  background-color: blue;
+  background-image: url(sweetTest.jpg);
+  display: flex;
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+.travel {
+  height: 60vh;
+  width: 25%;
+  margin-left: 2.5%;
+  background-color: blue;
+  background-image: url(travelTest.jpg);
+  display: flex;
+  background-size: cover; /* Ensures the image covers the entire element */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents repeating */
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+.whiteTextBox {
+  width: 90%;
+  height: 12vh;
+  opacity: 0.6;
+  margin: auto;
+  background-color: white;
+  margin-top: 40vh;
+  position: absolute;
+}
+
+
+/* white space */
+.aboutMe {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 60vh;
 }
