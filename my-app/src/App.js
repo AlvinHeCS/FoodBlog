@@ -77,7 +77,10 @@ function Home() {
       </div>
       <div className="aboutMeContainer">
         <div className='aboutMePic'></div>
-        <div className='aboutMeTextBox'></div>
+        <div className='aboutMeTextBox'>
+          <div className='aboutMeTitle'>About Me</div>
+          <div className='aboutMeDescription'>I'm a guy who’s absolutely passionate about cooking—there’s nothing I love more than experimenting in the kitchen, discovering new flavors, and perfecting my favorite recipes. What started as a simple hobby soon turned into something more, and I found myself wanting to share my creations with others. That’s why I started my food blog—a place where I can document my culinary adventures, share my favorite recipes, and hopefully inspire others to get creative in the kitchen. Whether it’s a simple home-cooked meal or an ambitious dish I’ve been perfecting for weeks, I believe food is meant to be enjoyed and shared. Join me on this journey as I explore new flavors, techniques, and the joy of cooking!</div>
+        </div>
       </div>
       <div className="socialsBg"></div>
     </div>

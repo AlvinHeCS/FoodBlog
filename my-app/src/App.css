@@ -354,9 +354,11 @@
   width: 100%;
   height: 60vh;
   display: flex;
-  justify-content: space-between; /* Ensures elements are placed at opposite ends */
+  justify-content: flex-start; /* Ensures elements are placed at opposite ends */
   align-items: center; /* Centers them vertically */
   padding: 0 5%; /* Optional: Adds padding for better spacing */
+  gap: 3%;
+  margin-left: 5%;
 }
 
 .aboutMePic {
@@ -372,7 +374,14 @@
 .aboutMeTextBox {
   width: 40%;
   height: 40%;
-  background-color: blue;
+  display: flex;
+  background-color: rgb(212, 212, 214);
+  justify-content: flex-start;
+}
+
+.aboutMeTitle {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 30px;
 }
 
 
