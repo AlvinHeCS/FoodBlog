@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import Login from './Login';
 import {
   BrowserRouter as Router,
   Routes,
@@ -82,7 +83,12 @@ function Home() {
           <div className='aboutMeDescription'>I'm a guy who’s absolutely passionate about cooking—there’s nothing I love more than experimenting in the kitchen, discovering new flavors, and perfecting my favorite recipes. What started as a simple hobby soon turned into something more, and I found myself wanting to share my creations with others. That’s why I started my food blog—a place where I can document my culinary adventures, share my favorite recipes, and hopefully inspire others to get creative in the kitchen. Whether it’s a simple home-cooked meal or an ambitious dish I’ve been perfecting for weeks, I believe food is meant to be enjoyed and shared. Join me on this journey as I explore new flavors, techniques, and the joy of cooking!</div>
         </div>
       </div>
-      <div className="socialsBg"></div>
+      <div className="socialsBg">
+        <div className='socialsBtnContainer'>
+        </div>
+        <div className='socialsBtnContainer'></div>
+        <div className='socialsBtnContainer'></div>
+      </div>
     </div>
   );
 }
@@ -114,7 +120,7 @@ function FeaturedPage() {
 function LoginPage() {
   return (
     <div className="login-page">
-      <header className="header">
+      <header className="loginHeader">
         <label className="menuCheckBox">
           <label className="menuIconContainer">
             <img src="/menu.png" alt="menu" className='menuIcon'/>
@@ -131,22 +137,12 @@ function LoginPage() {
         </label>
         <div className="logo">Login</div>
       </header>
-      <form>
-        <label>
-          Username:
-          <input type="text" name="username" required />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" name="password" required />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
+      <div className='loginBox'>
+        <Login />
+      </div>
     </div>
   );
-}
+};
 
 function SavouryPage() {
   const [isChecked, setIsChecked] = useState(false);
