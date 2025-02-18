@@ -120,7 +120,7 @@ function FeaturedPage() {
 function LoginPage() {
   return (
     <div className="login-page">
-      <header className="loginHeader">
+      <header className="header">
         <label className="menuCheckBox">
           <label className="menuIconContainer">
             <img src="/menu.png" alt="menu" className='menuIcon'/>

@@ -11,6 +11,8 @@
   background-color: rgb(255, 255, 255);
   /* border: 2px solid rgb(197, 42, 42); */
   display: flex;
+  /* border-bottom: 2px solid rgb(0, 0, 0); */
+
 
 }
 
@@ -389,10 +391,11 @@
   font-family: "Times New Roman", Times, serif;
   font-size: 35px;
   /* border: 2px solid red; */
-  height: 20%;
+  height: 13%;
   width: 20%;
   flex: none;
   /* margin-top: 2% */
+  border-bottom: 1px solid;
 }
 
 .aboutMeDescription {
@@ -432,14 +435,19 @@
 
 /* login-page */
 
-.loginHeader {
+.login-page .header {
   width: 100%; 
   height: 10vh;
   background-color: rgb(255, 255, 255);
   display: flex;
   position: absolute;
   align-self: flex-start;
-  /* border: 2px solid rgb(197, 42, 42); */
+  border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+
+.login-page .logo {
+  color: rgb(0, 0, 0);
 }
 
 
